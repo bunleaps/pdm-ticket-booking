@@ -24,6 +24,12 @@ function calculateTotal() {
   const trainCode = document.getElementById("trainSelect").value;
   const numTickets = parseInt(document.getElementById("numTickets").value, 10);
 
+  // If enter invalid number is alert the user
+  if (isNaN(numTickets) || numTickets < 1) {
+    alert("Please enter a valid number of tickets.");
+    return;
+  }
+
   // Check if there is enough stock
   if (numTickets > ticketInfo[trainCode].stock) {
     // If out of stock, display an error message
